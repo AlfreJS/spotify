@@ -21,13 +21,21 @@ export class MediaPlayerComponent implements OnDestroy {
     _id: 1
   }
 
+  listObservers:Subscription[] = [];
+ 
+
   constructor( private _multimediaService:MultimediaService){}
 
-  observer: Subscription = this._multimediaService.callback.subscribe((response:ITrackModel)=>{
-    console.log("recibiendo cancion: " + response)
-  })
+  ngOnInit(){
+    const observer = this._multimediaService.callback.subscribe((response:ITrackModel)=>{
+      console.log("recibiendo cancion: " + response)
+    })
+
+    this.listObservers = [observer]
+  }
 
   ngOnDestroy():void{
+    this.listObservers.forEach(observer=>observer.unsubscribe)
     console.log("BOOOOOM!!!")
   }
 }
