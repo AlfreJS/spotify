@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
@@ -14,17 +15,17 @@ export class SidebarComponent {
     {
       name: "Home",
       icon: "uil uil-estate",
-      router:['/']
+      router:['/auth']
     },
     {
       name: "Buscar",
       icon: "uil uil-search-alt",
-      router: ['/','history']
+      router: ['history']
     },
     {
       name: "Tu biblioteca",
       icon: "uil uil-chart",
-      router: ['/','favorites']
+      router: ['favorites']
     }
   ];
 

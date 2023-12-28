@@ -8,6 +8,7 @@ import { SectionGenericComponent } from './components/section-generic/section-ge
 
 
 
+
 @NgModule({
   declarations: [],
   imports: [
